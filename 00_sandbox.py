@@ -1,7 +1,7 @@
-get_number = int(input("Choose a number "))
+name = ""
+while name.lower() != "xxx":
+    name = input("who are you? ")
+    print(name)
 
-times_five = get_number * 5
-
-answer = "{} times five is equal to " \
-"{}".format(get_number, times_five)
-print(answer)
+print()
+print("we are done!")
