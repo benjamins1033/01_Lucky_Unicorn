@@ -4,8 +4,8 @@ def yes_no(question):
         response = input(question).lower()
 
         if response == "yes" or response == "y":
-                response = "yes"
-                return response
+            response = "yes"
+            return response
 
         elif response == "no" or response == "n":
             response = "no"
@@ -14,6 +14,7 @@ def yes_no(question):
     else:
         print("Please answer yes / no")
 
+
 def instructions():
     print("**** How to Play ****")
     print()
@@ -21,10 +22,35 @@ def instructions():
     print()
     return ""
 
+
+def num_check(question, low, high):
+    error = "please enter an whole number between 1 and 10\n"
+
+    valid = False
+    while not valid:
+        try:
+
+            response = int(input(question))
+
+            if low < response <= high:
+                return response
+
+            else:
+                print(error)
+
+        except ValueError:
+            print(error)
+
+
 played_before = yes_no("Have you played the "
-                           "game before? ")
+                       "game before? ")
 
 if played_before == "no":
     instructions()
 
 print("Program continues")
+
+how_much = num_check("How much would you "
+                     "like to play with? ", 0, 10)
+
+print("You will be spending ${}".format(how_much))
