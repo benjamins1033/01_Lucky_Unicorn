@@ -1,3 +1,4 @@
+# checks user response is yes / no to a given question
 def yes_no(question):
     valid = False
     while not valid:
@@ -11,10 +12,11 @@ def yes_no(question):
             response = "no"
             return response
 
-    else:
-        print("Please answer yes / no")
+        else:
+            print("Please answer yes / no")
 
 
+# Displays the instructions
 def instructions():
     print("**** How to Play ****")
     print()
@@ -23,6 +25,7 @@ def instructions():
     return ""
 
 
+# checks users enter an integer between a low and high number
 def num_check(question, low, high):
     error = "please enter an whole number between 1 and 10\n"
 
