@@ -4,8 +4,8 @@ def yes_no(question):
         response = input(question).lower()
 
         if response == "yes" or response == "y":
-                response = "yes"
-                return response
+            response = "yes"
+            return response
 
         elif response == "no" or response == "n":
             response = "no"
@@ -13,6 +13,7 @@ def yes_no(question):
 
     else:
         print("Please answer yes / no")
+
 
 show_instructions = yes_no("Have you played the "
                            "game before? ")
