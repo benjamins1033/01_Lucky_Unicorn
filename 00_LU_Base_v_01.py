@@ -1,3 +1,6 @@
+import random
+
+
 # checks user response is yes / no to a given question
 def yes_no(question):
     valid = False
@@ -45,6 +48,23 @@ def num_check(question, low, high):
             print(error)
 
 
+def statement_generator(statement, decoration):
+    sides = decoration * 3
+
+    statement = "{} {} {}".format(sides, statement, sides)
+    top_bottom = decoration * len(statement)
+
+    print(top_bottom)
+    print(statement)
+    print(top_bottom)
+
+    return ""
+
+
+# Main routine goes here
+statement_generator("Welcome to the Lucky Unicorn Game", "*")
+print()
+statement_generator("Congratulations you got a Unicorn", "!")
 played_before = yes_no("Have you played the "
                        "game before? ")
 
@@ -56,9 +76,8 @@ print()
 how_much = num_check("How much would you "
                      "like to play with? ", 0, 10)
 
-
 # set balance for testing purposes
-balance = how much
+balance = how_much
 
 rounds_played = 0
 
@@ -77,19 +96,28 @@ while play_again == "":
     # user gets a unicorn (add $4 to balance)
     if 1 <= chosen_num <= 5:
         chosen = "unicorn"
+        prize_decoration = "!"
         balance += 4
 
     # if the random # is between 6 and 36
     # user gets a donkey (subtract $1 from balance)
     elif 6 <= chosen_num <= 36:
         chosen = "donkey"
+        prize_decoration = "D"
         balance -= 1
     else:
         if chosen_num % 2 == 0:
             chosen = "horse"
+            prize_decoration = "H"
         else:
             chosen = "zebra"
+            prize_decoration = "Z"
         balance -= 0.5
+
+    outcome = "You got a {}. Your balance is " \
+              "${:.f}".format(chosen, balance)
+
+    statement_generator(outcome, prize_decoration)
 
     if balance < 1:
         play_again = "xxx"
