@@ -48,6 +48,7 @@ def num_check(question, low, high):
             print(error)
 
 
+# adds decoration to key messages
 def statement_generator(statement, decoration):
     sides = decoration * 3
 
@@ -64,7 +65,7 @@ def statement_generator(statement, decoration):
 # Main routine goes here
 statement_generator("Welcome to the Lucky Unicorn Game", "*")
 print()
-statement_generator("Congratulations you got a Unicorn", "!")
+
 played_before = yes_no("Have you played the "
                        "game before? ")
 
@@ -115,7 +116,7 @@ while play_again == "":
         balance -= 0.5
 
     outcome = "You got a {}. Your balance is " \
-              "${:.f}".format(chosen, balance)
+              "${:.2f}".format(chosen, balance)
 
     statement_generator(outcome, prize_decoration)
 
@@ -129,6 +130,6 @@ while play_again == "":
     print()
     # print("You got {}. Your balance is "
     #       "${:.2f}".format(chosen, balance))
-    print(f"You got {chosen}.  Your balance is {balance:.2f}")
+    print(f"You got {chosen}.  Your balance is ${balance:.2f}")
 
     print()
